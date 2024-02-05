@@ -1,0 +1,43 @@
+MySql Database Detail
+----------------------
+1) Create db user
+CREATE USER 'garcy'@'localhost' IDENTIFIED BY 'GracyGargi$01';
+
+user -> garcy
+password -> GracyGargi$01
+
+2) Create a database or schema
+CREATE DATABASE Garcy_Enterprises;
+
+3) Grant all access
+Database/Schema Name -> Garcy_Enterprises
+
+GRANT ALL ON Garcy_Enterprises.* TO 'garcy'@'localhost';
+
+4) Install my-sql python library
+
+brew install mysql pkg-config
+pip install mysql-python
+
+Django Admin Credentials
+----------------------------
+user : admin
+email : garcyenterprise@gmail.com
+pwd : GracyGargi$01
+
+Django Commands
+--------------------------------------------------------------------
+1. pip install django -> to install django
+2. django-admin startproject project_name -> to start a new django project
+3. python manage.py runserver -> to run the django project.
+4. python manage.py startapp app_name -> to start a new app within the django project.
+5. python manage.py migrate -> To apply all database changes.
+6. python manage.py createsuperuser ->  To create a django admin user.
+
+
+Test User
+-----------
+user : testuser@gmail.com
+pwd : testuser@gmail.com
+
+/opt/homebrew/etc/gitconfig

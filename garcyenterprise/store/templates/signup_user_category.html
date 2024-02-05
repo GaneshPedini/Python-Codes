@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- body -->
+<div class="container-fluid mt-3">
+	<div class="row">
+        <!-- filter -->
+            <div class="col-lg-3 mx-auto">
+                        <div class="list-group">
+                                <h4  class="h4-store">Chose the type of user you are</h4>
+
+                                <a href="signup_store_user"
+                                    class="list-group-item list-group-item-action btn btn-outline-success ">Store User</a>
+                                <a href="signup_customer"
+                                    class="list-group-item list-group-item-action btn btn-outline-success ">Customer</a>
+                        </div>
+                        </div>
+            </div>
+
+    </div>
+</div>
+
+{% endblock %}

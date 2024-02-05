@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- body -->
+<div class="container-fluid mt-3">
+	<div class="row">
+
+		<!-- filter -->
+		<hr>
+		<div class="col-lg-3 mx-auto">
+			<div class="list-group">
+
+				<a class="list-group-item list-group-item-action btn btn-outline-success">All Products</a>
+
+				{% for category in categories %}
+				<a href="{% url 'view_inventory_by_category' category.id %}"
+					class="list-group-item list-group-item-action btn btn-outline-success ">{{category.name}}</a>
+				{% endfor %}
+			</div>
+		</div>
+
+		<div class="border rounded p-4 m-4">
+			<hr>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Sno.</th>
+						<th>Product Name</th>
+						<th>Product Category</th>
+						<th>Price</th>
+						<th>Quantity Purchased</th>
+						<th>Quantity Sold</th>
+						<th>Quantity Available</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					{% for product in products %}
+					<tr>
+						<td>{{forloop.counter}}</td>
+						<td>{{product.name}}</td>
+						<td>{{product.category}}</td>
+						<td>{{product.price}}</td>
+						<td>{{product.qty_purchased}}</td>
+						<td>{{product.qty_sold}}</td>
+						<td>{{product.qty_available}}</td>
+					</tr>
+
+					{% endfor %}
+
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+</div>
+{% endblock %}

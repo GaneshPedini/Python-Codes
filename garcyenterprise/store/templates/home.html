@@ -36,12 +36,12 @@ p {
 
                                 {% for store in stores %}
                                 <a href="{% url 'store' store.id %}"
-                                    class="list-group-item list-group-item-action btn btn-outline-success ">{{store.name}}</a>
+                                    class="list-group-item list-group-item-action btn btn-outline-success " methods="GET">{{store.name}}</a>
                                 {% endfor %}
                             {% endif %}
 
                         </div>
-                        </div>
+
             </div>
 
     </div>

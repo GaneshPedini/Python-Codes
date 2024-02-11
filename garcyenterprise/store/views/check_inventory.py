@@ -11,8 +11,8 @@ class CheckInventory(View):
         return redirect('view_inventory')
 
     def get(self, request):
-        # print()
-        return HttpResponseRedirect(f'/view_inventory{request.get_full_path()[1:]}')
+        print(f" The Path val : {request.get_full_path()[1:]}")
+        return HttpResponseRedirect(f'/store_inventory{request.get_full_path()[1:]}')
 
 
 def store_inventory(request):
@@ -22,13 +22,14 @@ def store_inventory(request):
     category_id = request.GET.get('category')
     print(f"You have selected {category_id} category")
     if category_id:
+        print(f"Entering into the category loop!!")
         products = Product.get_all_products_by_categoryid(category_id)
     else:
         products = Product.get_all_products()
-
+    print(f"Product list: {products}")
     data = dict({})
     data['products'] = products
     data['categories'] = categories
 
     print('you are : ', request.session.get('email'))
-    return render(request, 'view_inventory', data)
+    return render(request, 'view_inventory.html', data)

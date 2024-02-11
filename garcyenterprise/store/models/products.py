@@ -8,7 +8,8 @@ class Product(models.Model):
     qty_purchased = models.IntegerField(default=0)
     qty_available = models.IntegerField(default=0)
     qty_sold = models.IntegerField(default=0)
-    category = models.ForeignKey(Category, to_field="name", related_name="category", on_delete=models.CASCADE, default=1)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, default=1)
+    #category = models.ForeignKey(Category, to_field="id", related_name="category", on_delete=models.CASCADE, default=1)
     #image = models.ImageField(upload_to='uploads/products/')
 
 
@@ -28,6 +29,9 @@ class Product(models.Model):
     @staticmethod
     def get_all_products_by_categoryid(category_id):
         if category_id:
+            print(f"The category in model: {category_id}")
+            data = Product.objects.filter(category=category_id)
+            print(data)
             return Product.objects.filter(category=category_id)
         else:
             return Product.get_all_products()

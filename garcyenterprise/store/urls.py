@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from .views.home import home, store
-from .views.check_inventory import CheckInventory
+from .views.check_inventory import CheckInventory, store_inventory
 from django.contrib.auth import views as auth_views
 from .views.user_category import Signup_User_Category, Login_User_Category
 from .views.signup import Signup_Store_User, Signup_Customer
@@ -12,7 +12,8 @@ from .views.login import Login_Store_User, Login_Customer, logout
 #app_name = "store"
 urlpatterns = [
     path('home', home, name='home'),
-    path('view_inventory', CheckInventory.as_view(), name='view_inventory'),
+    path('', CheckInventory.as_view(), name='view_inventory'),
+    path('store_inventory', store_inventory, name='store_inventory'),
     path('signup_user_category', Signup_User_Category.signup_check, name='signup_user_category'),
     path('login_user_category', Login_User_Category.login_check, name='login_user_category'),
     path('signup_store_user', Signup_Store_User.as_view(), name='signup_store_user'),

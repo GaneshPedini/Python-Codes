@@ -15,17 +15,16 @@
 		<div class="col-lg-3 mx-auto">
 			<div class="list-group">
 
-				<a class="list-group-item list-group-item-action btn btn-outline-success">All Products</a>
+				<a href="{% url 'view_inventory' %}" class="list-group-item list-group-item-action btn btn-outline-success">All Products</a>
 
 				{% for category in categories %}
-				<a href="/?category={{category.id}}"
+				<a href="{% url 'store_inventory' category.id %}"
 					class="list-group-item list-group-item-action btn btn-outline-success ">{{category.name}}</a>
 				{% endfor %}
 			</div>
 		</div>
 
 		<div class="border rounded p-4 m-4">
-			<hr>
 			<table class="table">
 				<thead>
 					<tr>

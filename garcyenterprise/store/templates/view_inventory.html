@@ -5,36 +5,48 @@
 {% block content %}
 
 {% load custom_filter %}
+<style type="text/css">
+
+	.inventory-table th{
+	background-color: green;
+	color: white;
+	text-align: left;
+	}
+	.inventory-table td, .inventory-table th{
+	padding:5x;border:1px solid #000
+	}
+	.row{
+	padding:10x
+	}
+</style>
 
 <!-- body -->
 <div class="container-fluid mt-3">
 	<div class="row">
-
 		<!-- filter -->
-		<hr>
-		<div class="col-lg-3 mx-auto">
+		<div class="col-md-2" >
 			<div class="list-group">
 
-				<a href="{% url 'view_inventory' %}" class="list-group-item list-group-item-action btn btn-outline-success">All Products</a>
+				<a href="{% url 'view_inventory' %}" class="list-group-item list-group-item-action btn btn-outline-success"><b>All Products</b></a>
 
 				{% for category in categories %}
 				<a href="{% url 'store_inventory' category.id %}"
-					class="list-group-item list-group-item-action btn btn-outline-success ">{{category.name}}</a>
+				   class="list-group-item list-group-item-action btn btn-outline-success "><b>{{category.name}}</b></a>
 				{% endfor %}
 			</div>
 		</div>
 
-		<div class="border rounded p-4 m-4">
-			<table class="table">
+		<div>
+			<table class="inventory-table">
 				<thead>
 					<tr>
-						<th>Sno.</th>
-						<th>Product Name</th>
-						<th>Product Category</th>
-						<th>Price</th>
-						<th>Quantity Purchased</th>
-						<th>Quantity Sold</th>
-						<th>Quantity Available</th>
+						<th scope="col" class="col-1">Sno.  </th>
+						<th scope="col" class="col-3">Product Name</th>
+						<th scope="col" class="col-3">Product Category</th>
+						<th scope="col" class="col-1">Price</th>
+						<th scope="col" class="col-1">Quantity Purchased</th>
+						<th scope="col" class="col-1">Quantity Sold</th>
+						<th scope="col" class="col-1">Quantity Available</th>
 					</tr>
 				</thead>
 				<tbody>

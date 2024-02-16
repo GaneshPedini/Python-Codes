@@ -1,8 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<div>
+    <a href="{% url 'view_inventory' %}" class="btn"><button style="background-color: blue, font: white"  >View Inventory</button></a>
+    <a href="{% url 'view_inventory' %}" class="btn"><button style="background-color: blue, font: white"  >Manage Inventory</button></a>
+    <a href="{% url 'view_inventory' %}" class="btn"><button style="background-color: blue, font: white"  >Place Order</button></a>
+    <a href="{% url 'view_inventory' %}" class="btn"><button style="background-color: blue, font: white"  >Generate Report</button></a>
+</div>
 
-    <a href="{% url 'view_inventory' %}" class="btn">View Inventory</a>
 
 {% endblock %}
 

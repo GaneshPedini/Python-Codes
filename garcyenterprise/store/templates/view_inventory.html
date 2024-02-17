@@ -5,6 +5,12 @@
 {% block content %}
 
 {% load custom_filter %}
+<script  type="text/javascript">
+	var b1 = document.getElementById("category-btn");
+	b1.onclick = function() {
+     b1.style.background = "teal";
+	}
+</script>
 <style type="text/css">
 
 	.inventory-table th{
@@ -17,6 +23,9 @@
 	}
 	.row{
 	padding:10x
+	}
+	.category-btn:hover{
+	background-color: teal;
 	}
 </style>
 
@@ -31,7 +40,7 @@
 
 				{% for category in categories %}
 				<a href="{% url 'store_inventory' category.id %}"
-				   class="list-group-item list-group-item-action btn btn-outline-success "><b>{{category.name}}</b></a>
+				   class="list-group-item list-group-item-action category-btn btn-outline-success"><b>{{category.name}}</b></a>
 				{% endfor %}
 			</div>
 		</div>

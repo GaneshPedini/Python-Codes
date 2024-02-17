@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div>
+    <a href="{% url 'add_single_product' %}" class="btn"><button style="background-color: blue, font: white" >Add Single Product</button></a>
+    <a href="{% url 'view_inventory' %}" class="btn"><button style="background-color: blue, font: white" >Add Bulk Products</button></a>
+    <a href="{% url 'view_inventory' %}" class="btn"><button style="background-color: blue, font: white" >Update Single Product</button></a>
+    <a href="{% url 'view_inventory' %}" class="btn"><button style="background-color: blue, font: white" >Update Bulk Product</button></a>
+    <a href="{% url 'view_inventory' %}" class="btn"><button style="background-color: blue, font: white" >Delete Single Product</button></a>
+    <a href="{% url 'view_inventory' %}" class="btn"><button style="background-color: blue, font: white" >Delete Bulk Product</button></a>
+
+</div>
+
+
+{% endblock %}

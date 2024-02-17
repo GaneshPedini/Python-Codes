@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path
 from .views.home import home, store
 from .views.check_inventory import CheckInventory, store_inventory, store_inventory_all
+from .views.manage_inventory import manageinv_index, add_single_product
 from django.contrib.auth import views as auth_views
 from .views.user_category import Signup_User_Category, Login_User_Category
 from .views.signup import Signup_Store_User, Signup_Customer
@@ -15,6 +16,8 @@ urlpatterns = [
     path('home/', home, name='home'),
     path('home/store/<str:id>', store, name='store'),
     path('home/view_inventory', CheckInventory.as_view(), name='view_inventory'),
+    path('home/manage_inventory', manageinv_index, name='manage_inventory'),
+    path('home/manage_inventory/add_single_product', add_single_product, name='add_single_product'),
     path('home/home/view_inventory/store_inventory', store_inventory_all, name='store_inventory_All'),
     path('home/home/view_inventory/store_inventory/<str:id>', store_inventory, name='store_inventory'),
     path('signup_user_category', Signup_User_Category.signup_check, name='signup_user_category'),

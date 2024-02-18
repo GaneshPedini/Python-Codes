@@ -1,13 +1,21 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+
+<style type="text/css">
+    h2{
+    text-align: center;
+    }
+
+</style>
+
+<h2 style="color:maroon; align-items: centre;"><i>Manage Inventory</i></h2>
+
 <div>
-    <a href="{% url 'add_single_product' %}" class="btn"><button style="background-color: blue, font: white" >Add Single Product</button></a>
-    <a href="{% url 'view_inventory' %}" class="btn"><button style="background-color: blue, font: white" >Add Bulk Products</button></a>
-    <a href="{% url 'view_inventory' %}" class="btn"><button style="background-color: blue, font: white" >Update Single Product</button></a>
-    <a href="{% url 'view_inventory' %}" class="btn"><button style="background-color: blue, font: white" >Update Bulk Product</button></a>
-    <a href="{% url 'view_inventory' %}" class="btn"><button style="background-color: blue, font: white" >Delete Single Product</button></a>
-    <a href="{% url 'view_inventory' %}" class="btn"><button style="background-color: blue, font: white" >Delete Bulk Product</button></a>
+
+    <a href="{% url 'add_inventory' %}" class="btn"><button style="background-color: blue, font: white" >Add Inventory</button></a>
+    <a href="{% url 'view_inventory' %}" class="btn"><button style="background-color: blue, font: white" >Update Inventory</button></a>
+    <a href="{% url 'view_inventory' %}" class="btn"><button style="background-color: blue, font: white" >Delete Inventory</button></a>
 
 </div>
 

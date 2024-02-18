@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{%load crispy_forms_tags %}
+{% block content %}
+<style type="text/css">
+    .col-md-4{
+     outline: 1px solid black;
+
+    }
+    h1,h2,h4{
+    text-align: center;
+    }
+
+</style>
+
+<h2 style="color:maroon; align-items: centre;"><i>Add Inventory</i></h2>
+<a href="{% url 'manage_inventory' %}" class="btn"><button style="background-color: blue, font: white"  >Back to Manage Inventory</button></a>
+
+<div class="container-fluid mt-3">
+	<div class="row">
+		<div class="col-md-1">
+
+        </div>
+		<div class="col-md-4">
+            <h4>Enter each product detail as below</h4>
+            <form action = "" method = "post">
+                {% csrf_token %}
+                {{single_inv_form|crispy }}
+                <input type="submit" value=Submit>
+            </form>
+            <p></p>
+        </div>
+        <div class="col-md-2" >
+        </div>
+        <div class="col-md-4" >
+            <h4>Upload Excel Data</h4>
+            <form action = "" method = "post">
+                {% csrf_token %}
+                {{bulk_inv_form|crispy }}
+                <input type="submit" value=Submit>
+            </form>
+        </div>
+        <div class="col-md-1">
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

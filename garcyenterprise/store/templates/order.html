@@ -1,7 +1,6 @@
+
 {% extends 'base.html' %}
-
 {% load static %}
-
 {% block content %}
 
 {% load custom_filter %}
@@ -21,6 +20,15 @@
 	.category-btn:hover{
 	background-color: teal;
 	}
+	#cash{
+	float:left;
+	}
+	#phonepay{
+	vertical-align:middle;
+	}
+	#credit{
+	float:right
+	}
 </style>
 
 <!-- body -->
@@ -30,47 +38,40 @@
 		<div class="col-md-2" >
 			<div class="list-group">
 
-				<a href="{% url 'view_inventory' %}" class="list-group-item list-group-item-action btn btn-outline-success"><b>All Products</b></a>
+				<a href="{% url 'order' %}" class="list-group-item list-group-item-action btn btn-outline-success"><b>All Products</b></a>
 
 				{% for category in categories %}
-				<a href="{% url 'store_inventory' category.id %}"
+				<a href="{% url 'store_order' category.id %}"
 				   class="list-group-item list-group-item-action category-btn btn-outline-success"><b>{{category.name}}</b></a>
 				{% endfor %}
 			</div>
 		</div>
 
-		<div>
-			<table class="inventory-table">
-				<thead>
-					<tr>
-						<th scope="col" class="col-1">Sno.  </th>
-						<th scope="col" class="col-3">Product Name</th>
-						<th scope="col" class="col-3">Product Category</th>
-						<th scope="col" class="col-1">Price</th>
-						<th scope="col" class="col-1">Quantity Purchased</th>
-						<th scope="col" class="col-1">Quantity Sold</th>
-						<th scope="col" class="col-1">Quantity Available</th>
-					</tr>
-				</thead>
-				<tbody>
-					{% for category in categories %}
-						{% for product in products|in_category:category %}
-						<tr>
-							<td>{{forloop.counter}}</td>
-							<td>{{product.name}}</td>
-							<td>{{product.category}}</td>
-							<td>{{product.price}}</td>
-							<td>{{product.qty_purchased}}</td>
-							<td>{{product.qty_sold}}</td>
-							<td>{{product.qty_available}}</td>
-						</tr>
+		<!-- all products -->
+		<div class="payment-type">
+				<h4 id="cash">Cash:</h4>
+				<h4 id="phonepay">PhonePay:</h4>
+				<h4 id="credit">Credit:</h4>
 
-						{% endfor %}
-					{% endfor %}
-
-				</tbody>
-			</table>
 		</div>
+		<div id='products' class="col-lg-9 mx-auto">
+
+			<div class="row mx-auto">
+				{% for product in products %}
+				<div class="card mx-auto mb-3" id={{product.id}} style="width: 10rem;">
+					<img class="card-img-top" src="/static/products/{{product.name}}.jpeg" alt="Card image cap">
+					<div class="card-body">
+						<p class="card-title">{{product.name}}</p>
+						<p class="card-text"><b>{{product.price}}</b></p>
+					</div>
+
+
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+
+
 	</div>
 
 </div>

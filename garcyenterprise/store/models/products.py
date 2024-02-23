@@ -9,8 +9,9 @@ class Product(models.Model):
     qty_available = models.IntegerField(default=0)
     qty_sold = models.IntegerField(default=0)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, default=1)
+    image = models.ImageField(upload_to='media/products/')
     #category = models.ForeignKey(Category, to_field="id", related_name="category", on_delete=models.CASCADE, default=1)
-    #image = models.ImageField(upload_to='uploads/products/')
+    #image = models.ImageField(upload_to='media/products/')
 
 
     @property

@@ -57,18 +57,23 @@
 
         {% if request.session.store_user or request.session.customer %}
 
-        <li class="nav-item active ">
-          <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+          <li class="nav-item active ">
+            <a class="list-group-item list-group-item-action btn btn-outline-success" href="{% url 'logout' %}">Logout</a>
 
-        </li>
+          </li>
+          <li class="nav-item active">
+            <a class="list-group-item list-group-item-action btn btn-outline-success" href="/cart">Cart
+              <span class="badge badge-success">{{request.session.cart.keys|length}}</span>
+              <span class="sr-only">(current)</span></a>
+          </li>
         {% else %}
 
-        <li class="nav-item active">
-          <a class="list-group-item list-group-item-action btn btn-outline-success " href="/signup_user_category"><font color="maroon" size><b>Signup</b></font><span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item active">
-          <a class="list-group-item list-group-item-action btn btn-outline-success" href="/login_user_category"><font color="maroon" size><b>Login</b></font><span class="sr-only">(current)</span></a>
-        </li>
+          <li class="nav-item active">
+            <a class="list-group-item list-group-item-action btn btn-outline-success " href="/signup_user_category"><font color="maroon" size><b>Signup</b></font><span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="list-group-item list-group-item-action btn btn-outline-success" href="/login_user_category"><font color="maroon" size><b>Login</b></font><span class="sr-only">(current)</span></a>
+          </li>
         {% endif %}
 
 

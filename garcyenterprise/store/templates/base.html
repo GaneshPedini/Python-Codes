@@ -55,17 +55,19 @@
 
       <ul class=" navbar-nav my-2 my-lg-0">
 
+
         {% if request.session.store_user or request.session.customer %}
-
-          <li class="nav-item active ">
-            <a class="list-group-item list-group-item-action btn btn-outline-success" href="{% url 'logout' %}">Logout</a>
-
-          </li>
           <li class="nav-item active">
             <a class="list-group-item list-group-item-action btn btn-outline-success" href="{% url 'cart' %}">Cart
               <span class="badge badge-success">{{request.session.cart.keys|length}}</span>
               <span class="sr-only">(current)</span></a>
           </li>
+
+          <li class="nav-item active ">
+            <a class="list-group-item list-group-item-action btn btn-outline-success" href="{% url 'logout' %}">Logout</a>
+
+          </li>
+
         {% else %}
 
           <li class="nav-item active">

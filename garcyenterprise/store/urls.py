@@ -4,7 +4,7 @@ from .views.home import home, store
 from .views.check_inventory import CheckInventory, store_inventory, store_inventory_all
 from .views.manage_inventory import manageinv_index, add_inventory
 from .views.order import PlaceOrder, store_order, store_order_all, add_remove_product
-from .views.cart import Cart
+from .views.cart import cart_view
 from django.contrib.auth import views as auth_views
 from .views.user_category import Signup_User_Category, Login_User_Category
 from .views.signup import Signup_Store_User, Signup_Customer
@@ -26,7 +26,7 @@ urlpatterns = [
     path('home/home/place_order/store_order', store_order_all, name='store_order_All'),
     path('home/home/place_order/store_order/<str:id>', store_order, name='store_order'),
     path('home/home/place_order/store_order/product/<str:id>', add_remove_product, name='store_order_product'),
-    path('home/home/place_order/store_order/cart', Cart.as_view(), name='cart'),
+    path('home/home/place_order/store_order/products/cart', cart_view, name='cart'),
     path('signup_user_category', Signup_User_Category.signup_check, name='signup_user_category'),
     path('login_user_category', Login_User_Category.login_check, name='login_user_category'),
     path('signup_store_user', Signup_Store_User.as_view(), name='signup_store_user'),

@@ -23,11 +23,11 @@
                 {% for product in products %}
                 <tr>
                     <td>{{forloop.counter}}</td>
-                    <td><img style="height: 80px;" class="rounded-circle" src="{{product.image.url}}" alt=""></td>
+                    <td><img style="height: 80px;" class="rounded-circle" src="/static/products/{{product.name}}.jpeg" alt=""></td>
                     <td>{{product.name}}</td>
-                    <td>{{product.price|currency}}</td>
+                    <td>{{product.price}}</td>
                     <td>{{product|cart_quantity:request.session.cart}}</td>
-                    <td>{{product|price_total:request.session.cart|currency}}</td>
+                    <td>{{product|price_total:request.session.cart}}</td>
                 </tr>
 
                 {% endfor %}
@@ -37,9 +37,14 @@
                 <tr>
                     <th colspan="4"></th>
                     <th class="" colspan="">Total</th>
-                    <th>{{products|total_cart_price:request.session.cart|currency}}</th>
+                    <th>{{products|total_cart_price:request.session.cart}}</th>
                 </tr>
             </tfoot>
         </table>
+        <hr>
+        <div class="m-3 p-3">
+            <a href="#" data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-success border rounded  col-lg-3 float-right">Check out</a>
+        </div>
    </div>
 </div>
+{% endblock %}

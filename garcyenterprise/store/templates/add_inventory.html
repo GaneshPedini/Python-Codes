@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{%load crispy_forms_tags %}
+{% load crispy_forms_tags %}
 {% block content %}
 <style type="text/css">
     .col-md-4{
@@ -23,9 +23,9 @@
         </div>
 		<div class="col-md-4">
             <h4>Enter each product detail as below</h4>
-            <form action = "" method = "post">
+            <form action='' method = "post" enctype="multipart/form-data">
                 {% csrf_token %}
-                {{single_inv_form|crispy }}
+                {{ single_inv_form|crispy }}
                 <input type="submit" value=Submit>
             </form>
             <p></p>
@@ -34,11 +34,7 @@
         </div>
         <div class="col-md-4" >
             <h4>Upload Excel Data</h4>
-            <form action = "" method = "post">
-                {% csrf_token %}
-                {{bulk_inv_form|crispy }}
-                <input type="submit" value=Submit>
-            </form>
+
         </div>
         <div class="col-md-1">
 

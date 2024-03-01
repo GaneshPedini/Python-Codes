@@ -10,6 +10,8 @@ from .views.user_category import Signup_User_Category, Login_User_Category
 from .views.signup import Signup_Store_User, Signup_Customer
 from .views.login import Login_Store_User, Login_Customer, logout
 from .middlewares.auth import auth_middleware
+from django.conf import settings
+from django.conf.urls.static import static
 
 #from .middlewares.auth import  auth_middleware
 
@@ -35,4 +37,4 @@ urlpatterns = [
     path('login_customer', Login_Customer.as_view(), name='login_customer'),
     path('logout', auth_views.LogoutView.as_view(template_name='logout.html'), name='logout'),
 
-    ]
+    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -10,5 +10,10 @@ class Category(models.Model):
     def get_all_categories():
         return Category.objects.all()
 
+    @staticmethod
+    def get_id_by_name(name):
+        single_obj = Category.get_object_or_404(name=name)
+        return single_obj.pk
+
     def __str__(self):
         return self.name
